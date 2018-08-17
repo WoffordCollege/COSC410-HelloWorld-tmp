@@ -59,7 +59,7 @@ tasks.withType(JavaCompile) {
     options.compilerArgs += ['-proc:none', '-Xlint:unchecked', '-Xlint:deprecation']
 }
 
-mainClassName = 'edu.wofford.HelloWorld'
+mainClassName = 'edu.wofford.Main'
 
 jar {
     manifest {
