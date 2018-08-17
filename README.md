@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/aarongarrett/COSC410-hello-world.svg?branch=master)](https://travis-ci.org/aarongarrett/COSC410-hello-world)
+[![Coverage Status](https://coveralls.io/repos/github/aarongarrett/COSC410-hello-world/badge.svg?branch=master)](https://coveralls.io/github/aarongarrett/COSC410-hello-world?branch=master)
+
 # Hello World
 This repository will allow you to build your first professional Java
 project, including unit and acceptance tests, using Gradle as the
