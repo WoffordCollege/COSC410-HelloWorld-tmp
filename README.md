@@ -48,42 +48,42 @@ If the application expects command-line arguments (as this example does), you ca
 ## Structure
 The directory structure that is assumed by Gradle (though it can be changed if you want) is as follows:
 
-    project root     (root directory of project)
+    project root  (root directory of project)
                |
-                - build.gradle       (contains the instructions for the build tasks)
+                - build.gradle  (contains the instructions for the build tasks)
                |
-                - src                (root directory of the source code; main, test, cucumberTest)
+                - src  (root directory of the source code; main, test, cucumberTest)
                     |
                      - cucumberTest  (root directory of Cucumber acceptance tests)
                     |             |
-                    |              - java (all packages go here)
+                    |              - java  (all packages go here)
                     |             |     |
-                    |             |      - cucumber (root package for Cucumber tests and hooks)
+                    |             |      - cucumber  (root package for Cucumber tests and hooks)
                     |             |               |
-                    |             |                - hooks (all source code for before/after hooks)
+                    |             |                - hooks  (all source code for before/after hooks)
                     |             |               |
-                    |             |                - steps (all source code for feature steps)
+                    |             |                - steps  (all source code for feature steps)
                     |             |
-                    |              - resources (contains resources for Cucumber tests)
+                    |              - resources  (contains resources for Cucumber tests)
                     |                        |
-                    |                         - features (contains all feature files)
-                     - main          (root directory of normal source code)
+                    |                         - features  (contains all feature files)
+                     - main  (root directory of normal source code)
                     |     |
-                    |      - java (all packages go here)
+                    |      - java  (all packages go here)
                     |           |
                     |            - edu    
                     |                |
-                    |                 - wofford (source code goes here)
+                    |                 - wofford  (source code goes here)
                     |            
                     |
                     |
-                     - test          (root directory of unit test code)
+                     - test  (root directory of unit test code)
                           |
-                           - java (all packages go here)
+                           - java  (all packages go here)
                                 |
                                  - edu    
                                      |
-                                      - wofford (unit test code goes here)
+                                      - wofford  (unit test code goes here)
 
 After you run `gradlew build`, a new `build` directory will automatically be created. This will contain all of the generated files (compiled class files, JAR files, reports, etc.). The most important things here are as follows:
 

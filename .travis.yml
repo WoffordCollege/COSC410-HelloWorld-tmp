@@ -1,8 +1,8 @@
 language: java
 
 script:
-- ./gradlew check
-- ./gradlew runrobot
+- ./gradlew build
+- ./gradlew cucumberTest
 
 after_success:
 - ./gradlew jacocoTestReport coveralls
