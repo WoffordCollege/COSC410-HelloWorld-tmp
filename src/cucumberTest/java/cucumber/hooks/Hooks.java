@@ -13,7 +13,6 @@ public class Hooks {
 	
 	@Before
     public void beforeScenario(){
-        System.out.println("This will run before the Scenario");
         originalOut = System.out;
         System.setOut(new PrintStream(outContent));
     }	
@@ -22,6 +21,5 @@ public class Hooks {
     public void afterScenario(){
         System.setOut(originalOut);
         outContent.reset();
-        System.out.println("This will run after the Scenario");
     }
 }
