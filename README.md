@@ -88,7 +88,9 @@ The directory structure that is assumed by Gradle (though it can be changed if y
                                      |
                                       - wofford  (unit test code goes here)
 
-After you run `gradlew build`, a new `build` directory will automatically be created. This will contain all of the generated files (compiled class files, JAR files, reports, etc.). The most important things here are as follows:
+After you run `gradlew build`, a new `build` directory will automatically be created. 
+This will contain all of the generated files (compiled class files, JAR files, reports, 
+etc.). The most important things here are as follows:
 
 `build/reports/tests/index.html`
 : This file holds the results of all of the unit tests.
@@ -100,17 +102,23 @@ After you run `gradlew build`, a new `build` directory will automatically be cre
   `java -jar build/libs/<name>.jar`
   from the project root.
 
-After you run `gradlew cucumberTest`, a `reports/cucumberTest` directory will be created in the `build` directory. This will contain the reports for the Cucumber acceptance tests.
+After you run `gradlew cucumberTest`, a `reports/cucumberTest` directory will be 
+created in the `build` directory. This will contain the reports for the Cucumber 
+acceptance tests.
 
 `build/reports/cucumberTest/overview-features.html`
 : This file holds the Cucumber acceptance test results.
 
-After you run `gradlew jacocoTestReport`, a `reports/jacoco/test/html` directory will be created in the `build` directory. This will contain the reports for the Jacoco code coverage.
+After you run `gradlew jacocoTestReport`, a `reports/jacoco/test/html` directory 
+will be created in the `build` directory. This will contain the reports for the 
+Jacoco code coverage.
   
 `build/reports/jacoco/test/html/index.html`
 : This file holds the unit test code coverage results from Jacoco.
 
-After you run `gradlew javadoc`, a `docs` directory will be created in the project root. This will contain all of the generated Javadoc documentation for your source files.  
+After you run `gradlew javadoc`, a `docs` directory will be created in the project 
+root. This will contain all of the generated Javadoc documentation for your 
+source files.  
 
 `docs/javadoc/index.html`
 : This file is the index to the generated documentation.

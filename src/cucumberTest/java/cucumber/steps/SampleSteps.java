@@ -22,7 +22,7 @@ public class SampleSteps {
     @Given("the user enters the greeting {string}")
     public void theUserEntersTheGreeting(String string) {
         String[] args = {string};
-        HelloWorld.main(args);
+        Main.main(args);
     }
     
     @When("the user views the interface")
