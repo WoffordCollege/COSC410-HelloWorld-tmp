@@ -1,39 +1,71 @@
 buildscript {
-    dependencies {
-        classpath files(mkdir('build/classes/main'))
-        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+    repositories {
+        mavenCentral()
     }
 }
+
 plugins {
-  id 'org.roboscratch.robot' version '0.1.2'
-  id 'com.github.kt3k.coveralls' version '2.6.3'
+    id 'com.commercehub.cucumber-jvm' version '0.14'
 }
+
 apply plugin: 'java'
 apply plugin: 'jacoco'
 apply plugin: 'application'
-apply plugin: 'gradle-one-jar'
-
-
-version = '1.0'
-mainClassName = 'edu.wofford.HelloWorld'
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'Hello World', 
-                   'Implementation-Version': version, 
-                   'Main-Class': mainClassName
-    }
-}
-
-task uberjar(type: OneJar) {
-    mainClass = mainClassName
-}
+apply plugin: 'idea'
+apply plugin: 'eclipse'
 
 repositories {
     mavenCentral()
 }
 
+project.ext {
+    javaVersion = '1.8'
+    junitVersion = '4.12'
+    cucumberVersion = '3.0.2'
+    cucumberProVersion = '2.1.1'
+}
+
+compileJava {
+    targetCompatibility = javaVersion
+    sourceCompatibility = javaVersion
+}
+
+
+addCucumberSuite 'cucumberTest'
+  
+cucumber {
+    maxParallelForks = 3
+}
+
+cucumberTest {
+    stepDefinitionRoots = ['cucumber.steps', 'cucumber.hooks']
+}
+
+
 dependencies {
-    testCompile 'junit:junit:4+'
+    compile 'org.slf4j:slf4j-api:1.7.18'
+    compile 'org.glassfish:javax.json:1.1.2'
+    compile 'org.apache.logging.log4j:log4j-api:2.11.0'
+    compile 'org.apache.logging.log4j:log4j-core:2.11.0'
+    testCompile 'junit:junit:' + junitVersion
+    testCompile "org.mockito:mockito-core:1.+"
+    testCompile 'org.powermock:powermock-module-junit4:1.6.5'
+    testCompile 'org.powermock:powermock-api-mockito:1.6.5'
+    cucumberTestCompile 'io.cucumber:cucumber-java:' + cucumberVersion
+    cucumberTestCompile 'io.cucumber:cucumber-junit:' + cucumberVersion
+    cucumberTestCompile 'io.cucumber:pro-plugin:' + cucumberProVersion
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ['-proc:none', '-Xlint:unchecked', '-Xlint:deprecation']
+}
+
+mainClassName = 'edu.wofford.HelloWorld'
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
 }
 
 jacocoTestReport {
@@ -43,7 +75,10 @@ jacocoTestReport {
     }
 }
 
+javadoc {
+    options.with {
+        links 'https://docs.oracle.com/javase/8/docs/api/'
+    }
+}
 
-runrobot.debugfile = 'debug.log'
-runrobot.dependsOn test
 
