@@ -59,11 +59,14 @@ tasks.withType(JavaCompile) {
     options.compilerArgs += ['-proc:none', '-Xlint:unchecked', '-Xlint:deprecation']
 }
 
+version = '1.0'
 mainClassName = 'edu.wofford.Main'
 
 jar {
     manifest {
-        attributes 'Main-Class': mainClassName
+        attributes 'Main-Class': mainClassName,
+                   'Implementation-Title': 'Tic Tac Toe',
+                   'Implementation-Version': version
     }
 }
 
