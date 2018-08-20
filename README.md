@@ -19,11 +19,11 @@ Then, you can run the unit test coverage report.
 
 Then, you can run the acceptance tests. 
 
-`gradlew cucumberTest`
+`gradlew runrobot`
 
 You can even do multiple things in one statement:
 
-`gradlew build jacocoTestReport cucumberTest`
+`gradlew build jacocoTestReport runrobot`
 
 When you want to get rid of all of the temporary files (like compiled class files and such), you can say
 
@@ -31,7 +31,7 @@ When you want to get rid of all of the temporary files (like compiled class file
 
 If you want to do a full build and reporting from a clean project, you can just string it all together:
 
-`gradlew clean build jacocoTestReport cucumberTest`
+`gradlew clean build jacocoTestReport runrobot`
 
 If you want to create the generated documentation (based on your Javadoc comments), you can say
 
@@ -41,7 +41,7 @@ And if you want to run the application you have created, you can say
 
 `gradlew run`
 
-If the application expects command-line arguments (as this example does), you can pass them as follows:
+If the application expects command-line arguments (as this command-line example does), you can pass them as follows:
 
 `gradlew run --args 'forward'`
 `gradlew run --args 'backward'`
@@ -55,30 +55,19 @@ The directory structure that is assumed by Gradle (though it can be changed if y
                |
                 - build.gradle  (contains the instructions for the build tasks)
                |
-                - src  (root directory of the source code; main, test, cucumberTest)
+                - src  (root directory of the source code; acceptance, main, test)
                     |
-                     - cucumberTest  (root directory of Cucumber acceptance tests)
-                    |             |
-                    |              - java  (all packages go here)
-                    |             |     |
-                    |             |      - cucumber  (root package for Cucumber tests and hooks)
-                    |             |               |
-                    |             |                - hooks  (all source code for before/after hooks)
-                    |             |               |
-                    |             |                - steps  (all source code for feature steps)
-                    |             |
-                    |              - resources  (contains resources for Cucumber tests)
-                    |                        |
-                    |                         - features  (contains all feature files)
+                     - acceptance  (root directory of Robot Framework acceptance tests)
+                    |
                      - main  (root directory of normal source code)
                     |     |
                     |      - java  (all packages go here)
                     |           |
                     |            - edu    
-                    |                |
-                    |                 - wofford  (source code goes here)
-                    |            
-                    |
+                    |           |    |
+                    |           |     - wofford  (source code goes here)
+                    |           | 
+                    |            - keywords  (sorce code for Robot Framework custom keywords goes here)
                     |
                      - test  (root directory of unit test code)
                           |
@@ -102,12 +91,12 @@ etc.). The most important things here are as follows:
   `java -jar build/libs/<name>.jar`
   from the project root.
 
-After you run `gradlew cucumberTest`, a `reports/cucumberTest` directory will be 
-created in the `build` directory. This will contain the reports for the Cucumber 
+After you run `gradlew runrobot`, a `reports/robot` directory will be 
+created in the `build` directory. This will contain the reports for the 
 acceptance tests.
 
-`build/reports/cucumberTest/overview-features.html`
-: This file holds the Cucumber acceptance test results.
+`build/reports/robot/report.html`
+: This file holds the Robot Framework acceptance test results.
 
 After you run `gradlew jacocoTestReport`, a `reports/jacoco/test/html` directory 
 will be created in the `build` directory. This will contain the reports for the 
