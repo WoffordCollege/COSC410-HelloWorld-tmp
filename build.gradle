@@ -50,34 +50,28 @@ version = '1.0'
 mainClassName = 'edu.wofford.Main'
 
 jar {
+    baseName = 'Hello World'
     manifest {
-        attributes 'Main-Class': mainClassName,
-                   'Implementation-Title': 'Hello World',
-                   'Implementation-Version': version
+        attributes 'Main-Class': application.mainClassName
     }
 }
 
-test {
-    jacoco {
-        append = false
-    }
+jacoco {
+    toolVersion = "0.8.3"
 }
 
 jacocoTestReport {
     reports {
-        xml.enabled = true // coveralls plugin depends on xml format report
-        html.enabled = true
+        html {
+            enabled true
+        }
     }
+ 
     afterEvaluate {
-        classDirectories = files(classDirectories.files.collect {
-            fileTree(dir: it,
-                     exclude: [
-                        '**/edu/wofford/Main*',
-                        '**/edu/wofford/ConsoleMain*',
-                        '**/edu/wofford/GuiMain*',
-                        '**/keywords/**'
-                    ])
-        })
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['edu/wofford/wocoin/Utilities**',
+                                        'edu/wofford/wocoin/main/**'])
+        }))
     }
 }
 

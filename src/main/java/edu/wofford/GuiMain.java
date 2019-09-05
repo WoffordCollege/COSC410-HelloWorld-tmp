@@ -35,7 +35,8 @@ public class GuiMain extends JFrame implements ActionListener {
         label.setPreferredSize(new Dimension(100, 50));
         add(label);
         setTitle("Hello World");
-	    pack();
+        pack();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     
