@@ -4,7 +4,7 @@
 # Hello World
 This repository will allow you to build your first professional Java
 project, including unit and acceptance tests, using Gradle as the
-build tool.
+build tool. This is an edit.
 
 ## Building the Project
 After you have cloned the repository, you should be able to navigate
