@@ -34,12 +34,12 @@ compileJava {
 }
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.18'
-    compile 'org.glassfish:javax.json:1.1.2'
-    testCompile 'junit:junit:' + junitVersion
-    testCompile "org.mockito:mockito-core:1.+"
-    testCompile 'org.powermock:powermock-module-junit4:1.6.5'
-    testCompile 'org.powermock:powermock-api-mockito:1.6.5'
+    implementation 'org.slf4j:slf4j-api:1.7.18'
+    implementation 'org.glassfish:javax.json:1.1.2'
+    testImplementation 'junit:junit:' + junitVersion
+    testImplementation "org.mockito:mockito-core:1.+"
+    testImplementation 'org.powermock:powermock-module-junit4:1.6.5'
+    testImplementation 'org.powermock:powermock-api-mockito:1.6.5'
 }
 
 tasks.withType(JavaCompile) {
@@ -50,7 +50,7 @@ version = '1.0'
 mainClassName = 'edu.wofford.Main'
 
 jar {
-    baseName = 'Hello World'
+    archiveBaseName = 'HelloWorld'
     manifest {
         attributes 'Main-Class': application.mainClassName
     }
